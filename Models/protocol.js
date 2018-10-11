@@ -14,9 +14,12 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var ProtocolSchema = new Schema({
-    id: String,
-    protocol : String,
+    client_id: String,
+    protocol : Number,
     category:   String,
 	type:   String,
-	Data:   Mixed,
+	Data:   Number,
+  Time:    { type: Date, default: Date.now  }
 });
+
+module.exports = mongoose.model('protocol', ProtocolSchema);
